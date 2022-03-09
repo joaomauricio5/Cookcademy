@@ -11,6 +11,7 @@
 		CFD67A6227D8FB22001B2276 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD67A6127D8FB22001B2276 /* ContentView.swift */; };
 		CFD67A6427D8FB22001B2276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD67A6327D8FB22001B2276 /* Assets.xcassets */; };
 		CFD67A6727D8FB22001B2276 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD67A6627D8FB22001B2276 /* Preview Assets.xcassets */; };
+		CFD67A7027D8FC3C001B2276 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD67A6F27D8FC3C001B2276 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		CFD67A6327D8FB22001B2276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFD67A6627D8FB22001B2276 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFD67A6827D8FB22001B2276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD67A6F27D8FC3C001B2276 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				CFD67A5F27D8FB22001B2276 /* CookcademyApp.swift */,
 				CFD67A6127D8FB22001B2276 /* ContentView.swift */,
+				CFD67A6F27D8FC3C001B2276 /* Recipe.swift */,
 				CFD67A6327D8FB22001B2276 /* Assets.xcassets */,
 				CFD67A6827D8FB22001B2276 /* Info.plist */,
 				CFD67A6527D8FB22001B2276 /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD67A7027D8FC3C001B2276 /* Recipe.swift in Sources */,
 				CFD67A6227D8FB22001B2276 /* ContentView.swift in Sources */,
 				CFD67A6027D8FB22001B2276 /* CookcademyApp.swift in Sources */,
 			);
