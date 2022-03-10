@@ -12,12 +12,16 @@ struct RecipesListView: View {
     @StateObject var recipeData = RecipeData()
     
     var body: some View {
-        List{
-            ForEach(recipes) { recipe in
-                Text(recipe.mainInformation.name)
+        NavigationView{
+            List{
+                
+                ForEach(recipes) { recipe in
+                    NavigationLink(recipe.mainInformation.name,
+                                   destination: RecipeDetailView(recipe: recipe))
+                }
             }
+            .navigationTitle(navigationTitle)
         }
-        .navigationTitle(navigationTitle)
     }
 }
 
