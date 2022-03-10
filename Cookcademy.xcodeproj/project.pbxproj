@@ -13,6 +13,7 @@
 		CFD67A6727D8FB22001B2276 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD67A6627D8FB22001B2276 /* Preview Assets.xcassets */; };
 		CFD67A7027D8FC3C001B2276 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD67A6F27D8FC3C001B2276 /* Recipe.swift */; };
 		ED433E0827DA4CA400C021D7 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED433E0727DA4CA400C021D7 /* RecipeData.swift */; };
+		ED433E0A27DA51D900C021D7 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CFD67A6827D8FB22001B2276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFD67A6F27D8FC3C001B2276 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		ED433E0727DA4CA400C021D7 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD67A6127D8FB22001B2276 /* RecipesListView.swift */,
+				ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD67A7027D8FC3C001B2276 /* Recipe.swift in Sources */,
+				ED433E0A27DA51D900C021D7 /* RecipeDetailView.swift in Sources */,
 				ED433E0827DA4CA400C021D7 /* RecipeData.swift in Sources */,
 				CFD67A6227D8FB22001B2276 /* RecipesListView.swift in Sources */,
 				CFD67A6027D8FB22001B2276 /* CookcademyApp.swift in Sources */,

@@ -8,15 +8,36 @@
 import SwiftUI
 
 struct RecipesListView: View {
+    
+    @StateObject var recipeData = RecipeData()
+    
     var body: some View {
         List{
-            Text("Recipe1")
-        }.navigationTitle("All Recipes")
+            ForEach(recipes) { recipe in
+                Text(recipe.mainInformation.name)
+            }
+        }
+        .navigationTitle(navigationTitle)
     }
 }
 
 struct RecipesListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipesListView()
+        NavigationView{
+            RecipesListView()
+        }
     }
+}
+
+
+extension RecipesListView {
+    
+    var navigationTitle: String {
+        "All Recipes"
+    }
+    
+    var recipes: [Recipe] {
+        recipeData.recipes
+    }
+    
 }
