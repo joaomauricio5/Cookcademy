@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum Category {
-    case breakfast
-    case lunch
-    case dinner
-    case dessert
+enum Category: String, CaseIterable {
+    case breakfast = "Breakfast"
+    case lunch = "Lunch"
+    case dinner = "Dinner"
+    case dessert = "Dessert"
 }
 
 enum Unit: String {

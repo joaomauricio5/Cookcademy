@@ -15,6 +15,7 @@
 		ED433E0827DA4CA400C021D7 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED433E0727DA4CA400C021D7 /* RecipeData.swift */; };
 		ED433E0A27DA51D900C021D7 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */; };
 		ED433E0C27DA92A500C021D7 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED433E0B27DA92A500C021D7 /* AppColor.swift */; };
+		ED433E2827DE542C00C021D7 /* RecipeCategoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED433E2727DE542C00C021D7 /* RecipeCategoryGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ED433E0727DA4CA400C021D7 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		ED433E0B27DA92A500C021D7 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		ED433E2727DE542C00C021D7 /* RecipeCategoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD67A6127D8FB22001B2276 /* RecipesListView.swift */,
+				ED433E2727DE542C00C021D7 /* RecipeCategoryGridView.swift */,
 				ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */,
 			);
 			path = Views;
@@ -176,6 +179,7 @@
 			files = (
 				CFD67A7027D8FC3C001B2276 /* Recipe.swift in Sources */,
 				ED433E0A27DA51D900C021D7 /* RecipeDetailView.swift in Sources */,
+				ED433E2827DE542C00C021D7 /* RecipeCategoryGridView.swift in Sources */,
 				ED433E0827DA4CA400C021D7 /* RecipeData.swift in Sources */,
 				CFD67A6227D8FB22001B2276 /* RecipesListView.swift in Sources */,
 				CFD67A6027D8FB22001B2276 /* CookcademyApp.swift in Sources */,
