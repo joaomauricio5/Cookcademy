@@ -9,5 +9,5 @@ import Foundation
 
 class RecipeData: ObservableObject {
     @Published var recipes = Recipe.testRecipes
-    var categories = Category.allCases
+    let categories = Category.allCases    
 }
