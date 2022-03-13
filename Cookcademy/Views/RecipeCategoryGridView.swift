@@ -10,7 +10,10 @@ import SwiftUI
 struct RecipeCategoryGridView: View {
     
     let recipeData = RecipeData()
-    var categories = Category.allCases
+    
+    var categories: [Category] {
+        recipeData.categories
+    }
     
     var body: some View {
         NavigationView{
