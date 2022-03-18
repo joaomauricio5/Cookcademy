@@ -84,9 +84,8 @@
 		ED433E0327DA4A4B00C021D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CFD67A6127D8FB22001B2276 /* RecipesListView.swift */,
-				ED433E2727DE542C00C021D7 /* RecipeCategoryGridView.swift */,
-				ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */,
+				ED7BEDC927E5121A00F0BED6 /* ModifyRecipes */,
+				ED7BEDC827E5120000F0BED6 /* ExploreRecipes */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +105,23 @@
 				ED433E0727DA4CA400C021D7 /* RecipeData.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ED7BEDC827E5120000F0BED6 /* ExploreRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				CFD67A6127D8FB22001B2276 /* RecipesListView.swift */,
+				ED433E2727DE542C00C021D7 /* RecipeCategoryGridView.swift */,
+				ED433E0927DA51D900C021D7 /* RecipeDetailView.swift */,
+			);
+			path = ExploreRecipes;
+			sourceTree = "<group>";
+		};
+		ED7BEDC927E5121A00F0BED6 /* ModifyRecipes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModifyRecipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
