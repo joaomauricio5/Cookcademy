@@ -23,23 +23,40 @@ struct RecipesListView: View {
     @State private var newRecipe = Recipe()
     
     var body: some View {
-            List{
-                ForEach(filteredRecipes) { recipe in
-                    NavigationLink(recipe.mainInformation.name,
-                                   destination: RecipeDetailView(recipe: recipe))
-                }
-                .listRowBackground(listBackgroundColor)
+        List{
+            ForEach(filteredRecipes) { recipe in
+                NavigationLink(recipe.mainInformation.name,
+                               destination: RecipeDetailView(recipe: recipe))
             }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: {isSheetVisible.toggle()},
-                           label: {Image(systemName: "plus")})
-                }
+            .listRowBackground(listBackgroundColor)
+        }
+        .toolbar {
+            ToolbarItem {
+                Button(action: {isSheetVisible = true},
+                       label: {Image(systemName: "plus")})
             }
-            .sheet(isPresented: $isSheetVisible, onDismiss: nil) {
+        }
+        .sheet(isPresented: $isSheetVisible, onDismiss: nil) {
+            NavigationView{
                 ModifyRecipeView(recipe: $newRecipe)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction){
+                            Button(action: {isSheetVisible = false},
+                                   label: {Text("Dismiss").bold()})
+                        }
+                        
+                        ToolbarItem(placement: .confirmationAction){
+                            Button(action: {
+                                recipeData.recipes.append(newRecipe)
+                                isSheetVisible = false
+                            },
+                                   label: {Text("Add")})
+                        }
+                    }.navigationTitle("Add a New Recipe")
             }
-            .navigationTitle("\(category.rawValue) recipes")
+            
+        }
+        .navigationTitle("\(category.rawValue) recipes")
         
     }
 }

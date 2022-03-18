@@ -18,7 +18,7 @@ struct ModifyRecipeView: View {
                                                      author: "test",
                                                      category: .breakfast)
             recipe.directions = [Direction(description: "test",
-                                          isOptional: false)]
+                                           isOptional: false)]
             
             recipe.ingredients = [Ingredient(name: "test",
                                              quantity: 1.0,
@@ -30,6 +30,7 @@ struct ModifyRecipeView: View {
 
 struct ModifyRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyRecipeView(recipe: .constant(Recipe()))
+            ModifyRecipeView(recipe: .constant(Recipe()))
+        
     }
 }
