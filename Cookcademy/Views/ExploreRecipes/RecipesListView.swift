@@ -46,15 +46,16 @@ struct RecipesListView: View {
                         }
                         
                         ToolbarItem(placement: .confirmationAction){
-                            Button(action: {
-                                recipeData.recipes.append(newRecipe)
-                                isSheetVisible = false
-                            },
-                                   label: {Text("Add")})
+                            if newRecipe.isValid {
+                                Button(action: {
+                                    recipeData.recipes.append(newRecipe)
+                                    isSheetVisible = false
+                                },
+                                       label: {Text("Add")})
+                            }
                         }
                     }.navigationTitle("Add a New Recipe")
             }
-            
         }
         .navigationTitle("\(category.rawValue) recipes")
         

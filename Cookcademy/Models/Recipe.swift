@@ -32,6 +32,10 @@ struct MainInformation {
     var description: String
     var author: String
     var category: Category
+    
+    var isValid: Bool {
+        !name.isEmpty && !description.isEmpty && !author.isEmpty
+    }
 }
 
 struct Ingredient {
@@ -65,6 +69,10 @@ struct Recipe: Identifiable {
     var mainInformation: MainInformation
     var ingredients: [Ingredient]
     var directions: [Direction]
+    
+    var isValid: Bool{
+        mainInformation.isValid && !ingredients.isEmpty && !directions.isEmpty
+    }
     
     init(mainInformation: MainInformation, ingredients: [Ingredient], directions: [Direction]) {
         self.mainInformation = mainInformation
