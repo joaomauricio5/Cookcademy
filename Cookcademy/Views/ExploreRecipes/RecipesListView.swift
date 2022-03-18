@@ -19,6 +19,9 @@ struct RecipesListView: View {
         recipeData.recipes.filter { $0.mainInformation.category == category}
     }
     
+    @State private var isSheetVisible = false
+    @State private var newRecipe = Recipe()
+    
     var body: some View {
             List{
                 ForEach(filteredRecipes) { recipe in
@@ -26,6 +29,15 @@ struct RecipesListView: View {
                                    destination: RecipeDetailView(recipe: recipe))
                 }
                 .listRowBackground(listBackgroundColor)
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button(action: {isSheetVisible.toggle()},
+                           label: {Image(systemName: "plus")})
+                }
+            }
+            .sheet(isPresented: $isSheetVisible, onDismiss: nil) {
+                ModifyRecipeView(recipe: $newRecipe)
             }
             .navigationTitle("\(category.rawValue) recipes")
         
