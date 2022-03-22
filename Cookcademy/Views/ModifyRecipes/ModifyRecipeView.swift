@@ -31,7 +31,7 @@ struct ModifyRecipeView: View {
             
             switch informationToEdit {
             case .MainInformation:
-                Text("Edit main information")
+                ModifyMainInformationView(mainInformation: $recipe.mainInformation)
             case .Directions:
                 Text("Edit ingredients")
             case .Ingredients:
