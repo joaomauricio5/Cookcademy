@@ -48,7 +48,7 @@ struct RecipesListView: View {
                         ToolbarItem(placement: .confirmationAction){
                             if newRecipe.isValid {
                                 Button(action: {
-                                    recipeData.recipes.append(newRecipe)
+                                    recipeData.add(recipe: newRecipe)
                                     isSheetVisible = false
                                 },
                                        label: {Text("Add")})
