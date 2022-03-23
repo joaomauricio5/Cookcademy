@@ -16,8 +16,10 @@ extension NumberFormatter {
 }
 
 struct ModifyIngredientView: View {
-
+    
     @Binding var ingredient: Ingredient
+    
+    let actionForSaveButton: ((Ingredient) -> Void )
     
     var body: some View {
         Form{
@@ -28,7 +30,6 @@ struct ModifyIngredientView: View {
                     label: {
                 Text("Quantity:")
                 TextField("Quantity", value: $ingredient.quantity, formatter: NumberFormatter.oneDecimalPlace)
-                
             })
             
             Picker("Units", selection: $ingredient.unit) {
@@ -38,12 +39,25 @@ struct ModifyIngredientView: View {
                     }
                 }
             }.pickerStyle(.inline)
+            
+            
+            Button(action: {actionForSaveButton(ingredient)},
+                   label: {
+                
+                HStack {
+                    Spacer()
+                    Text("Save").bold()
+                    Spacer()
+                }
+                
+            })
+            
         }
     }
 }
 
 struct ModifyIngredientView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyIngredientView(ingredient: .constant( Ingredient(name: "testName", quantity: 5.0, unit: .cups)))
+        ModifyIngredientView(ingredient: .constant( Ingredient(name: "testName", quantity: 5.0, unit: .cups)), actionForSaveButton: {_ in print("TEST")})
     }
 }

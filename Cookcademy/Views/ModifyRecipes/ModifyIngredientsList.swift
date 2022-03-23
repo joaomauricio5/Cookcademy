@@ -13,6 +13,14 @@ struct ModifyIngredientsList: View {
     @Binding var ingredientsList : [Ingredient]
     
     var body: some View {
+        
+        //////////////////////////////////// Closure to save new ingredient to ingredientsList
+        let saveIngredientAction = { (ingredient: Ingredient) -> Void in
+            ingredientsList.append(ingredient)
+            newIngredient = Ingredient(name: "", quantity: 1.0, unit: .none)
+        }
+        ///////////////////////////
+        
         //NavigationView{
             Form{
                 if !ingredientsList.isEmpty {
@@ -21,16 +29,18 @@ struct ModifyIngredientsList: View {
                         
                     }
                 }
-                NavigationLink(destination: ModifyIngredientView(ingredient: $newIngredient),
+                NavigationLink(destination: ModifyIngredientView(ingredient: $newIngredient, actionForSaveButton: saveIngredientAction),
                                label: {Text("Add a new ingredient...")}).buttonStyle(.borderless)
             }
-      //  }
     }
 }
 
 
 struct ModifyIngredientsList_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyIngredientsList(ingredientsList: .constant([Ingredient]() ) )
+        NavigationView{
+            ModifyIngredientsList(ingredientsList: .constant([Ingredient]() ) )
+        }
+        
     }
 }
