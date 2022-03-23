@@ -14,7 +14,7 @@ enum Category: String, CaseIterable {
     case dessert = "Dessert"
 }
 
-enum Unit: String {
+enum Unit: String, CaseIterable {
     case oz = "Ounces"
     case g = "Grams"
     case cups = "Cups"
