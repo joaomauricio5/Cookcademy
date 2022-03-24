@@ -20,7 +20,7 @@ struct ModifyIngredientView: View {
     @Binding var ingredient: Ingredient
     @Environment(\.presentationMode) private var mode
     
-    let actionForSaveButton: ((Ingredient) -> Void )
+    let actionForSaveButton: ((Ingredient) -> Void)
     
     var body: some View {
         Form{
@@ -62,6 +62,6 @@ struct ModifyIngredientView: View {
 
 struct ModifyIngredientView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyIngredientView(ingredient: .constant( Ingredient()), actionForSaveButton: {_ in print("TEST")})
+        ModifyIngredientView(ingredient: .constant( Ingredient()), actionForSaveButton: {_ in})
     }
 }
