@@ -43,12 +43,24 @@ struct Ingredient {
     var quantity: Double
     var unit: Unit
     
+    init(name: String, quantity: Double, unit: Unit) {
+        self.name = name
+        self.quantity = quantity
+        self.unit = unit
+    }
+    
+    init() {
+        self.name = ""
+        self.quantity = 1.0
+        self.unit = .none
+    }
+    
     var description: String {
         let formatedQuantity = String(format: "%g", quantity)
         switch unit {
         case .none:
             let formattedName = quantity == 1 ? "\(name)" : "\(name)s"
-            return "\(quantity) \(formattedName)"
+            return "\(formatedQuantity) \(formattedName)"
         default:
             if quantity == 1 {
                 return "1 \(unit.singularName) \(name)"

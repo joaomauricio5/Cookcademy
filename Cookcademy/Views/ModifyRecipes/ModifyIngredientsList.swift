@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ModifyIngredientsList: View {
     
-    @State private var newIngredient = Ingredient(name: "", quantity: 1.0, unit: .none)
+    @State private var newIngredient = Ingredient()
     @Binding var ingredientsList : [Ingredient]
     
     var body: some View {
@@ -17,7 +17,7 @@ struct ModifyIngredientsList: View {
         //////////////////////////////////// Closure to save new ingredient to ingredientsList
         let saveIngredientAction = { (ingredient: Ingredient) -> Void in
             ingredientsList.append(ingredient)
-            newIngredient = Ingredient(name: "", quantity: 1.0, unit: .none)
+            newIngredient = Ingredient()
         }
         ///////////////////////////
         
@@ -25,7 +25,7 @@ struct ModifyIngredientsList: View {
             Form{
                 if !ingredientsList.isEmpty {
                     ForEach(ingredientsList.indices, id: \.self) { index in
-                        Text(ingredientsList[index].name)
+                        Text(ingredientsList[index].description)
                         
                     }
                 }

@@ -62,6 +62,6 @@ struct ModifyIngredientView: View {
 
 struct ModifyIngredientView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyIngredientView(ingredient: .constant( Ingredient(name: "testName", quantity: 5.0, unit: .cups)), actionForSaveButton: {_ in print("TEST")})
+        ModifyIngredientView(ingredient: .constant( Ingredient()), actionForSaveButton: {_ in print("TEST")})
     }
 }
