@@ -27,6 +27,11 @@ enum Unit: String, CaseIterable {
     }
 }
 
+protocol RecipeComponent{
+    init()
+    var description: String {get}
+}
+
 struct MainInformation {
     var name: String
     var description: String
@@ -38,7 +43,7 @@ struct MainInformation {
     }
 }
 
-struct Ingredient {
+struct Ingredient: RecipeComponent {
     var name: String
     var quantity: Double
     var unit: Unit
@@ -50,9 +55,7 @@ struct Ingredient {
     }
     
     init() {
-        self.name = ""
-        self.quantity = 1.0
-        self.unit = .none
+        self.init(name: "", quantity: 1.0, unit: .none)
     }
     
     var description: String {
@@ -71,7 +74,17 @@ struct Ingredient {
     }
 }
 
-struct Direction {
+struct Direction: RecipeComponent {
+    
+    init(description: String, isOptional: Bool) {
+        self.description = description
+        self.isOptional = isOptional
+    }
+    
+    init() {
+        self.init(description: "", isOptional: false)
+    }
+    
     var description: String
     var isOptional: Bool
 }

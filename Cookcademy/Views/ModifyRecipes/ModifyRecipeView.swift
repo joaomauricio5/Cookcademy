@@ -20,22 +20,20 @@ struct ModifyRecipeView: View {
     
     var body: some View {
         VStack{
-          //  Form{
                 Picker("Select recipe component", selection: $informationToEdit) {
                     ForEach(EditSelection.allCases, id: \.self) {selectionType in
                         Text(selectionType.rawValue)
                     }
                 }.pickerStyle(.segmented)
                 .padding()
-           // }
             
             switch informationToEdit {
             case .MainInformation:
                 ModifyMainInformationView(mainInformation: $recipe.mainInformation)
             case .Directions:
-                Text("Edit directions")
+                ModifyComponentsView<Direction, ModifyDirectionView>(componentsList: $recipe.directions)
             case .Ingredients:
-                ModifyIngredientsList(ingredientsList: $recipe.ingredients)
+                ModifyComponentsView<Ingredient, ModifyIngredientView>(componentsList: $recipe.ingredients)
             }
             
             Spacer()

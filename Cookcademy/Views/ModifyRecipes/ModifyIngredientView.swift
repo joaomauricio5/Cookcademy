@@ -15,12 +15,16 @@ extension NumberFormatter {
     }
 }
 
-struct ModifyIngredientView: View {
-    
+struct ModifyIngredientView: ModifyComponentView {
+
     @Binding var ingredient: Ingredient
     @Environment(\.presentationMode) private var mode
-    
     let actionForSaveButton: ((Ingredient) -> Void)
+    
+    init(component: Binding<Ingredient>, createAction: @escaping (Ingredient) -> Void) {
+        self._ingredient = component
+        self.actionForSaveButton = createAction
+    }
     
     var body: some View {
         Form{
@@ -62,6 +66,6 @@ struct ModifyIngredientView: View {
 
 struct ModifyIngredientView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyIngredientView(ingredient: .constant( Ingredient()), actionForSaveButton: {_ in})
+        ModifyIngredientView(component: .constant( Ingredient()), createAction: {_ in})
     }
 }

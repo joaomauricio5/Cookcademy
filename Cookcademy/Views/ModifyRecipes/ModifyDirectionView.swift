@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct ModifyDirectionView: View {
+struct ModifyDirectionView: ModifyComponentView {
+    typealias Component = Direction
     
     @Binding var direction: Direction
     @Environment(\.presentationMode) private var mode
     
     let actionForSaveButton: ((Direction) -> Void)
+    
+    
+    init(component: Binding<Direction>, createAction: @escaping (Direction) -> Void) {
+        self._direction = component
+        self.actionForSaveButton = createAction
+    }
     
     var body: some View {
         Form{
@@ -40,6 +47,6 @@ struct ModifyDirectionView: View {
 
 struct ModifyDirectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyDirectionView(direction: .constant(Direction(description: "TestDirection", isOptional: false)), actionForSaveButton: {_ in })
+        ModifyDirectionView(component: .constant(Direction()), createAction: {_ in })
     }
 }
