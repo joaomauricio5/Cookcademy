@@ -30,6 +30,7 @@ enum Unit: String, CaseIterable {
 protocol RecipeComponent{
     init()
     var description: String {get}
+    static var componentName: String {get set}
 }
 
 struct MainInformation {
@@ -47,6 +48,8 @@ struct Ingredient: RecipeComponent {
     var name: String
     var quantity: Double
     var unit: Unit
+    
+    static var componentName = "ingredient"
     
     init(name: String, quantity: Double, unit: Unit) {
         self.name = name
@@ -75,6 +78,8 @@ struct Ingredient: RecipeComponent {
 }
 
 struct Direction: RecipeComponent {
+    
+    static var componentName = "direction"
     
     init(description: String, isOptional: Bool) {
         self.description = description

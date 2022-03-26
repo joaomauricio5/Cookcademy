@@ -35,7 +35,7 @@ struct ModifyComponentsView<Component: RecipeComponent, DestinationView: ModifyC
                     }
                 }
                 NavigationLink(destination: DestinationView(component: $newComponent, createAction: saveComponentAction),
-                               label: {Text("Add a new component...")}).buttonStyle(.borderless)
+                               label: {Text("Add a new \(Component.componentName)...")}).buttonStyle(.borderless)
             }
     }
 }
