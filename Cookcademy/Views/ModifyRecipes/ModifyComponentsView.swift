@@ -26,17 +26,25 @@ struct ModifyComponentsView<Component: RecipeComponent, DestinationView: ModifyC
             newComponent = Component()
         }
         ///////////////////////////
-        
-            Form{
-                if !componentsList.isEmpty {
-                    ForEach(componentsList.indices, id: \.self) { index in
-                        Text(componentsList[index].description)
-                        
-                    }
-                }
-                NavigationLink(destination: DestinationView(component: $newComponent, createAction: saveComponentAction),
-                               label: {Text("Add a new \(Component.componentName)...")}).buttonStyle(.borderless)
+        VStack {
+            HStack {
+                Text("\(Component.componentName.capitalized)s").font(.headline).padding()
+                Spacer()
+                EditButton().padding()
             }
+            Form{
+                    if !componentsList.isEmpty {
+                        ForEach(componentsList.indices, id: \.self) { index in
+                            NavigationLink(destination: {DestinationView(component: $componentsList[index], createAction: {_ in return})}) {
+                                Text(componentsList[index].description)
+                            }
+                        }.onDelete(perform: {_ in })
+                            .onMove(perform: {_,_ in })
+                    }
+                    NavigationLink(destination: DestinationView(component: $newComponent, createAction: saveComponentAction),
+                                   label: {Text("Add a new \(Component.componentName)...")}).buttonStyle(.borderless)
+            }
+        }
     }
 }
 

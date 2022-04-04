@@ -49,12 +49,21 @@ struct RecipeDetailView: View {
         }.navigationTitle(recipe.mainInformation.name)
             .toolbar {
                 ToolbarItem{
-                    Button(action: {isPresenting.toggle()},
+                    Button(action: {isPresenting = true},
                            label: {Text("Edit")})
                 }
             }
             .sheet(isPresented: $isPresenting, onDismiss: {}, content: {
-                ModifyRecipeView(recipe: $recipe)
+                NavigationView{
+                    ModifyRecipeView(recipe: $recipe)
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction){
+                                Button("Save") {
+                                    isPresenting = false
+                                }
+                            }
+                        }.navigationTitle("Edit Recipe")
+                }
             })
     }
 }
