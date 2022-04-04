@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
-    let recipe: Recipe
+    @Binding var recipe: Recipe
     
     private let listBackgroundColor = AppColor.background
     private let listTextColor = AppColor.foreground
+    
+    @State private var isPresenting = false
     
     var body: some View {
         VStack{
@@ -45,13 +47,22 @@ struct RecipeDetailView: View {
                 }.listRowBackground(listBackgroundColor)
             }
         }.navigationTitle(recipe.mainInformation.name)
+            .toolbar {
+                ToolbarItem{
+                    Button(action: {isPresenting.toggle()},
+                           label: {Text("Edit")})
+                }
+            }
+            .sheet(isPresented: $isPresenting, onDismiss: {}, content: {
+                ModifyRecipeView(recipe: $recipe)
+            })
     }
 }
 
 struct RecipeDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            RecipeDetailView(recipe: RecipeData().recipes[1])
+            RecipeDetailView(recipe: .constant(RecipeData().recipes[1]))
         }
     }
 }

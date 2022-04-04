@@ -12,8 +12,15 @@ struct ModifyMainInformationView: View {
     
     var body: some View {
         Form{
-            TextField("Recipe Name", text: $mainInformation.name)
-            TextField("Author", text: $mainInformation.author)
+            Section(content: {
+                TextField("Recipe Name", text: $mainInformation.name)
+            },
+                    header: {Text("Recipe name")})
+            
+            Section(content: {
+                TextField("Author", text: $mainInformation.author)
+            },
+                    header: {Text("Author name")})
             
             Section(content: {
                 TextEditor(text: $mainInformation.description)
