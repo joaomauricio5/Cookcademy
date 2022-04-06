@@ -38,8 +38,8 @@ struct ModifyComponentsView<Component: RecipeComponent, DestinationView: ModifyC
                             NavigationLink(destination: {DestinationView(component: $componentsList[index], createAction: {_ in return})}) {
                                 Text(componentsList[index].description)
                             }
-                        }.onDelete(perform: {_ in })
-                            .onMove(perform: {_,_ in })
+                        }.onDelete(perform: {componentsList.remove(atOffsets: $0)})
+                            .onMove(perform: {componentsList.move(fromOffsets: $0, toOffset: $1)})
                     }
                     NavigationLink(destination: DestinationView(component: $newComponent, createAction: saveComponentAction),
                                    label: {Text("Add a new \(Component.componentName)...")}).buttonStyle(.borderless)
