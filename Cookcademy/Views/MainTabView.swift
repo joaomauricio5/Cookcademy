@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    @StateObject var recipeData = RecipeData()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            RecipeCategoryGridView()
+                .tabItem{
+                    Label("Recipes", systemImage: "list.dash")
+                }
+            
+            Text("Favorites view")
+                .tabItem{
+                    Label("Favorites", systemImage: "heart.fill")
+                }
+        }
+        .environmentObject(recipeData)
     }
 }
 

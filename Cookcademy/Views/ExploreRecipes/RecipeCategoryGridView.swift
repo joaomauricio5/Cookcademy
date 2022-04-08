@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeCategoryGridView: View {
     
-    @StateObject var recipeData = RecipeData()
+    @EnvironmentObject var recipeData: RecipeData
     
     var categories: [Category] {
         recipeData.categories
