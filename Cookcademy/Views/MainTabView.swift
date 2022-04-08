@@ -15,21 +15,14 @@ struct MainTabView: View {
         TabView{
             
             RecipeCategoryGridView()
-                .tabItem{
-                    Label("Recipes", systemImage: "list.dash")
-                }
+                .tabItem{ Label("Recipes", systemImage: "list.dash") }
             
             NavigationView{
                 RecipesListView(viewStyle: .Favorites)
-            }
-            .tabItem{
-                Label("Favorites", systemImage: "heart.fill")
-            }
-        
+            } .tabItem{ Label("Favorites", systemImage: "heart.fill") }
+            
             SettingsView()
-                .tabItem{
-                    Label("Settings", systemImage: "gear")
-                }
+                .tabItem{ Label("Settings", systemImage: "gear") }
         }
         .environmentObject(recipeData)
     }
