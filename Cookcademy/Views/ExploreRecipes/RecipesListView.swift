@@ -17,8 +17,8 @@ struct RecipesListView: View {
     let viewStyle: ViewStyle
     @EnvironmentObject var recipeData: RecipeData
     
-    private let listBackgroundColor = AppColor.background
-    private let listTextColor = AppColor.foreground
+    @AppStorage("listBackgroundColor") var listBackgroundColor = AppColor.background
+    @AppStorage("listTextColor") var listTextColor = AppColor.foreground
     
     private var filteredRecipes: [Recipe] {
         switch viewStyle {
@@ -55,6 +55,7 @@ struct RecipesListView: View {
                                destination: RecipeDetailView(recipe: binding(for: recipe)))
             }
             .listRowBackground(listBackgroundColor)
+            .foregroundColor(listTextColor)
         }
         .toolbar {
             ToolbarItem {

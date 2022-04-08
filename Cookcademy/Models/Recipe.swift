@@ -116,6 +116,12 @@ struct Recipe: Identifiable {
                   ingredients: [],
                   directions: [])
     }
+    
+    func index(of direction: Direction, excludingOptionalDirections: Bool) -> Int? {
+        let directions = self.directions.filter{excludingOptionalDirections ? !$0.isOptional : true }
+        let index = directions.firstIndex{$0.description == direction.description}
+        return index
+    }
 }
 
 
