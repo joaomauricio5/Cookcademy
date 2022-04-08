@@ -13,18 +13,20 @@ struct SettingsView: View {
     @State private var listTextColor = AppColor.foreground
     
     var body: some View {
-        Form{
-            ColorPicker("List Background Color", selection: $listBackgroundColor).padding()
-                .listRowBackground(listBackgroundColor)
-            
-            ColorPicker("List Text Color", selection: $listTextColor).padding()
-                .listRowBackground(listBackgroundColor)
-            
-            Toggle("Hide optional steps", isOn: $hideOptionalSteps).padding()
-                .listRowBackground(listBackgroundColor)
+        NavigationView{
+            Form{
+                ColorPicker("List Background Color", selection: $listBackgroundColor).padding()
+                    .listRowBackground(listBackgroundColor)
+                
+                ColorPicker("List Text Color", selection: $listTextColor).padding()
+                    .listRowBackground(listBackgroundColor)
+                
+                Toggle("Hide optional steps", isOn: $hideOptionalSteps).padding()
+                    .listRowBackground(listBackgroundColor)
+            }
+            .navigationTitle("Settings")
+            .foregroundColor(listTextColor)
         }
-        .navigationTitle("Settings")
-        .foregroundColor(listTextColor)
     }
 }
 
