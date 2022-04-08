@@ -9,14 +9,33 @@ import SwiftUI
 
 struct RecipesListView: View {
     
-    let category: Category
+    enum ViewStyle{
+        case SingleCategory(category: Category)
+        case Favorites
+    }
+    
+    let viewStyle: ViewStyle
     @EnvironmentObject var recipeData: RecipeData
     
     private let listBackgroundColor = AppColor.background
     private let listTextColor = AppColor.foreground
     
     private var filteredRecipes: [Recipe] {
-        recipeData.recipes.filter { $0.mainInformation.category == category}
+        switch viewStyle {
+        case .SingleCategory(let category):
+            return recipeData.recipes.filter { $0.mainInformation.category == category}
+        case .Favorites:
+            return recipeData.favoriteRecipes
+        }
+    }
+    
+    var navigationTitle: String {
+        switch viewStyle {
+        case .SingleCategory(let category):
+            return "\(category.rawValue) recipes"
+        case .Favorites:
+            return "Favorite recipes"
+        }
     }
     
     func binding(for recipe: Recipe) -> Binding<Recipe> {
@@ -39,7 +58,15 @@ struct RecipesListView: View {
         }
         .toolbar {
             ToolbarItem {
-                Button(action: {isSheetVisible = true},
+                Button(action: {
+                    isSheetVisible = true
+                    switch viewStyle {
+                    case .SingleCategory(let category):
+                        newRecipe.mainInformation.category = category
+                    case .Favorites:
+                        newRecipe.isFavorite = true
+                    }
+                },
                        label: {Image(systemName: "plus")})
             }
         }
@@ -63,16 +90,14 @@ struct RecipesListView: View {
                         }
                     }.navigationTitle("Add a New Recipe")
             }
-        }
-        .navigationTitle("\(category.rawValue) recipes")
-        
+        }.navigationTitle(navigationTitle)
     }
 }
 
 struct RecipesListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            RecipesListView(category: Category.breakfast)
+            RecipesListView(viewStyle: .SingleCategory(category: .breakfast))
                 .environmentObject(RecipeData())
         }
     }
