@@ -22,6 +22,7 @@
 		ED8A4F9E27EBA25900C75835 /* ModifyIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8A4F9D27EBA25900C75835 /* ModifyIngredientView.swift */; };
 		ED8A4FA027EBD16A00C75835 /* ModifyComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8A4F9F27EBD16A00C75835 /* ModifyComponentsView.swift */; };
 		EDE480A52800652B00423A3B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE480A42800652B00423A3B /* MainTabView.swift */; };
+		EDE480A72800A00C00423A3B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE480A62800A00C00423A3B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		ED8A4F9D27EBA25900C75835 /* ModifyIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyIngredientView.swift; sourceTree = "<group>"; };
 		ED8A4F9F27EBD16A00C75835 /* ModifyComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyComponentsView.swift; sourceTree = "<group>"; };
 		EDE480A42800652B00423A3B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		EDE480A62800A00C00423A3B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				ED7BEDC927E5121A00F0BED6 /* ModifyRecipes */,
 				ED7BEDC827E5120000F0BED6 /* ExploreRecipes */,
 				EDE480A42800652B00423A3B /* MainTabView.swift */,
+				EDE480A62800A00C00423A3B /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				ED65232327ECC6E70091E5EB /* ModifyDirectionView.swift in Sources */,
 				ED7BEDCB27E514CD00F0BED6 /* ModifyRecipeView.swift in Sources */,
 				CFD67A6227D8FB22001B2276 /* RecipesListView.swift in Sources */,
+				EDE480A72800A00C00423A3B /* SettingsView.swift in Sources */,
 				EDE480A52800652B00423A3B /* MainTabView.swift in Sources */,
 				CFD67A6027D8FB22001B2276 /* CookcademyApp.swift in Sources */,
 				ED8A4F9C27EA63BA00C75835 /* ModifyMainInformationView.swift in Sources */,

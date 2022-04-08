@@ -13,16 +13,26 @@ struct MainTabView: View {
     
     var body: some View {
         TabView{
+            
             RecipeCategoryGridView()
                 .tabItem{
                     Label("Recipes", systemImage: "list.dash")
                 }
+            
             NavigationView{
                 RecipesListView(viewStyle: .Favorites)
             }
-                .tabItem{
-                    Label("Favorites", systemImage: "heart.fill")
-                }
+            .tabItem{
+                Label("Favorites", systemImage: "heart.fill")
+            }
+            
+            
+            NavigationView{
+                SettingsView()
+            }
+            .tabItem{
+                Label("Settings", systemImage: "gear")
+            }
         }
         .environmentObject(recipeData)
     }
