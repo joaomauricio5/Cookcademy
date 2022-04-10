@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum Category: String, CaseIterable {
+enum Category: String, CaseIterable, Codable {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
     case dinner = "Dinner"
     case dessert = "Dessert"
 }
 
-enum Unit: String, CaseIterable {
+enum Unit: String, CaseIterable, Codable {
     case oz = "Ounces"
     case g = "Grams"
     case cups = "Cups"
@@ -33,7 +33,7 @@ protocol RecipeComponent{
     static var componentName: String {get set}
 }
 
-struct MainInformation {
+struct MainInformation: Codable {
     var name: String
     var description: String
     var author: String
@@ -44,7 +44,7 @@ struct MainInformation {
     }
 }
 
-struct Ingredient: RecipeComponent {
+struct Ingredient: RecipeComponent, Codable {
     var name: String
     var quantity: Double
     var unit: Unit
@@ -77,7 +77,7 @@ struct Ingredient: RecipeComponent {
     }
 }
 
-struct Direction: RecipeComponent {
+struct Direction: RecipeComponent, Codable {
     
     static var componentName = "direction"
     
@@ -94,7 +94,7 @@ struct Direction: RecipeComponent {
     var isOptional: Bool
 }
 
-struct Recipe: Identifiable {
+struct Recipe: Identifiable, Codable {
     var id = UUID()
     var mainInformation: MainInformation
     var ingredients: [Ingredient]

@@ -30,5 +30,21 @@ class RecipeData: ObservableObject {
         return nil
     }
     
+    private var recipesFileURL: URL {
+        let documentsDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        return documentsDirectory.appendingPathComponent("recipeData").appendingPathExtension(for: .json)
+    }
+    
+    func save() throws {
+        let data = try JSONEncoder().encode(recipes)
+        try data.write(to: recipesFileURL)
+    }
+    
+    func load() throws {
+        guard FileManager.default.isReadableFile(atPath: recipesFileURL.path) else {return}
+        let data = try Data(contentsOf: recipesFileURL)
+        recipes = try JSONDecoder().decode([Recipe].self, from: data)
+    }
+    
     
 }
