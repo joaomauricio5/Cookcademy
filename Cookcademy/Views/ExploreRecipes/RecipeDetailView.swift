@@ -17,6 +17,8 @@ struct RecipeDetailView: View {
     
     @State private var isPresenting = false
     
+    @EnvironmentObject var recipeData: RecipeData
+    
     var body: some View {
         VStack{
             HStack{
@@ -54,7 +56,9 @@ struct RecipeDetailView: View {
                     }.listRowBackground(listBackgroundColor)
                 }
             }
-        }.navigationTitle(recipe.mainInformation.name)
+        }
+        .onDisappear{try! recipeData.save()}
+        .navigationTitle(recipe.mainInformation.name)
             .toolbar {
                 ToolbarItem{
                     HStack {

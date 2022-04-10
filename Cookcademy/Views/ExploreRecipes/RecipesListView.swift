@@ -52,7 +52,7 @@ struct RecipesListView: View {
         List{
             ForEach(filteredRecipes) { recipe in
                 NavigationLink(recipe.mainInformation.name,
-                               destination: RecipeDetailView(recipe: binding(for: recipe)))
+                               destination: RecipeDetailView(recipe: binding(for: recipe)).environmentObject(recipeData))
             }
             .listRowBackground(listBackgroundColor)
             .foregroundColor(listTextColor)
