@@ -53,6 +53,15 @@ struct RecipesListView: View {
             ForEach(filteredRecipes) { recipe in
                 NavigationLink(recipe.mainInformation.name,
                                destination: RecipeDetailView(recipe: binding(for: recipe)).environmentObject(recipeData))
+            }.onDelete{ indexSet in
+                let index = indexSet[indexSet.startIndex]
+                let recipeToDelete = filteredRecipes[index]
+                
+                recipeData.recipes.removeAll {
+                    $0.id == recipeToDelete.id
+                }
+                
+                try! recipeData.save()
             }
             .listRowBackground(listBackgroundColor)
             .foregroundColor(listTextColor)
