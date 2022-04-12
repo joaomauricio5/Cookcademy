@@ -57,10 +57,16 @@ struct RecipesListView: View {
                 let index = indexSet[indexSet.startIndex]
                 let recipeToDelete = filteredRecipes[index]
                 
-                recipeData.recipes.removeAll {
-                    $0.id == recipeToDelete.id
+                switch viewStyle {
+                case .SingleCategory( _):
+                    recipeData.recipes.removeAll {
+                        $0.id == recipeToDelete.id
+                    }
+                case .Favorites:
+                    let indexFavorite = recipeData.recipes.firstIndex{$0.id == recipeToDelete.id}!
+                    recipeData.recipes[indexFavorite].isFavorite = false
                 }
-                
+            
                 try! recipeData.save()
             }
             .listRowBackground(listBackgroundColor)
